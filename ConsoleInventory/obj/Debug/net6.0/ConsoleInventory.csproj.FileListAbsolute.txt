@@ -1,0 +1,15 @@
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\bin\Debug\net6.0\ConsoleInventory.exe
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\bin\Debug\net6.0\ConsoleInventory.deps.json
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\bin\Debug\net6.0\ConsoleInventory.runtimeconfig.json
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\bin\Debug\net6.0\ConsoleInventory.dll
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\bin\Debug\net6.0\ConsoleInventory.pdb
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.csproj.AssemblyReference.cache
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.AssemblyInfoInputs.cache
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.AssemblyInfo.cs
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.csproj.CoreCompileInputs.cache
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.dll
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\refint\ConsoleInventory.dll
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.pdb
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ConsoleInventory.genruntimeconfig.cache
+C:\Users\Yehor\RiderProjects\ConsoleInventory\ConsoleInventory\obj\Debug\net6.0\ref\ConsoleInventory.dll
