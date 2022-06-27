@@ -6,23 +6,27 @@ class Program
     {
         Inventory inventory = new Inventory(10);
 
-        var Apple = new Item("Apple", 10, 5);
-        var Apple2 = new Item("Apple", 10, 6);
-        var Burger = new Item("Burger", 10, 6);
+        var apple = new Item("Apple", 10, 10);
+        var apple2 = new Item("Apple", 10, 7);
+        var burger = new Item("Burger", 10, 6);
 
-        inventory.AddToInventory(Apple);
-        inventory.AddToInventory(Apple2);
-        inventory.AddToInventory(Burger);
-        inventory.AddToInventory(Apple);
+        inventory.AddToInventory(apple);
+        inventory.AddToInventory(apple2);
+        inventory.AddToInventory(burger);
         
         //inventory.RemoveAllItemsWithId("Apple");
-        
-        //inventory.RemoveItemInSlot(2);
-        
-        //inventory.RemoveCertainAmountInSlot(2, 8);
-        
-        inventory.MoveToSlot(1, 3);
 
+        //inventory.AddToInventory(apple);
+        //inventory.AddToInventory(apple2);
+        
+        //inventory.RemoveItemInSlot(3);
+
+        //inventory.AddToInventory(burger);
+        
+        inventory.RemoveCertainAmountInSlot(1, 3);
+        
+        //inventory.MoveToSlot(1, 2);
+        
         Console.ReadLine();
     }
 }

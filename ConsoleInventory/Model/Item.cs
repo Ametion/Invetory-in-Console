@@ -4,21 +4,21 @@ namespace ConsoleInventory.Model;
 
 public class Item : IItem
 {
-    public string id { get; private set; }
-    public int amount { get; set; }
-    public int maxAmountInSlot { get; set; }
+    public string Id { get; }
+    public int Amount { get; set; }
+    public int MaxAmountInSlot { get; set; }
 
     public Item(IItem item)
     {
-        id = item.id;
-        amount = item.amount;
-        maxAmountInSlot = item.maxAmountInSlot;
+        Id = item.Id;
+        Amount = item.Amount;
+        MaxAmountInSlot = item.MaxAmountInSlot;
     }
 
-    public Item(string Id, int MaxAmountInSlot, int Amount = 1)
+    public Item(string id, int maxAmountInSlot, int amount = 1)
     {
-        id = Id;
-        maxAmountInSlot = MaxAmountInSlot;
-        amount = Amount;
+        Id = id;
+        MaxAmountInSlot = maxAmountInSlot;
+        Amount = amount;
     }
 }

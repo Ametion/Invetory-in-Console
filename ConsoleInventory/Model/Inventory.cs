@@ -23,7 +23,7 @@ public class Inventory : IInventory
     
     public void AddToInventory(IItem item)
     {
-        var amountToAdd = item.amount;
+        var amountToAdd = item.Amount;
         
         foreach (var slot in _inventory)
         {
@@ -34,21 +34,21 @@ public class Inventory : IInventory
                 break;
             }
 
-            if (slot.Item != null && slot.Item.id == item.id && !slot.IsFull && slot.Amount + item.amount <= slot.Capacity)
+            if (slot.Item != null && !slot.IsFull && slot.Item.Id == item.Id && slot.Amount + item.Amount <= slot.Capacity)
             {
-                slot.Item.amount += item.amount;
+                slot.Item.Amount += item.Amount;
                 break;
             }
             
-            if (slot.Item != null && !slot.IsFull && slot.Item.id == item.id)
+            if (slot.Item != null && !slot.IsFull && slot.Item.Id == item.Id)
             {
                 while (!slot.IsFull)
                 {
-                    slot.Item.amount++;
+                    slot.Item.Amount++;
                     amountToAdd--;
                 }
 
-                var remainingItems = new Item(item.id, item.maxAmountInSlot, amountToAdd);
+                var remainingItems = new Item(item.Id, item.MaxAmountInSlot, amountToAdd);
                 AddToInventory(remainingItems);
 
                 break;
@@ -58,7 +58,7 @@ public class Inventory : IInventory
 
     public void RemoveAllItemsWithId(string id)
     {
-        var slots = _inventory.FindAll(_slot =>  _slot.Item != null && _slot.Item.id == id);
+        var slots = _inventory.FindAll(_slot =>  _slot.Item != null && _slot.Item.Id == id);
 
         foreach (var slot in slots)
             slot.Clear();
@@ -69,6 +69,7 @@ public class Inventory : IInventory
         var slot = _inventory.Find(_slot => _slot.SlotId == slotId);
 
         if (slot.Item != null) slot.Clear();
+        
         else throw new Exception("Slot is already Empty");
     }
 
@@ -78,9 +79,9 @@ public class Inventory : IInventory
 
         if (slot.Item != null)
         {
-            if (slot.Item.amount - amountToRemove <= 0)
+            if (slot.Item.Amount - amountToRemove <= 0)
                 slot.Item = null;
-            else slot.Item.amount -= amountToRemove;
+            else slot.Item.Amount -= amountToRemove;
         }
         else throw new Exception("Slot is empty");
     }
@@ -88,29 +89,41 @@ public class Inventory : IInventory
 
     public void MoveToSlot(int fromSlotId, int toSlotId)
     {
+        if (fromSlotId == toSlotId) throw new Exception("You trying move item to same slot is it in");
+
         var slotFrom = _inventory.Find(_slot => _slot.SlotId == fromSlotId);
         var slotTo = _inventory.Find(_slot => _slot.SlotId == toSlotId);
 
-        if (slotFrom == slotTo) return;
-        if (slotFrom == null) return;
+        IItem slotFromItem;
+        IItem slotToItem;
+
+        if (slotFrom.Item == null) throw new Exception("You trying to move item in empty slot");
+            
+        slotFromItem = slotFrom.Item;
 
         if (slotTo.Item != null)
         {
-            if (slotFrom.Item.id == slotTo.Item.id && slotFrom.Amount + slotTo.Amount <= slotTo.Capacity)
+            slotToItem = slotTo.Item;
+            
+            if (slotTo.Item.Id == slotFrom.Item.Id && slotTo.Amount + slotFrom.Amount <= slotTo.Item.MaxAmountInSlot)
             {
-                slotTo.Item.amount += slotFrom.Amount;
+                slotTo.Item.Amount += slotFrom.Amount;
                 slotFrom.Clear();
+                return;
+            }
+            
+            if (slotTo.Item.Id != slotFrom.Item.Id)
+            {
+                slotTo.Item = slotFromItem;
+                slotFrom.Item = slotToItem;
+                return;
             }
         }
-        else if (slotTo.Item == null)
+
+        if (slotTo.Item == null)
         {
-            var newItem = new Item(slotFrom.Item);
-            slotTo.Item = newItem;
+            slotTo.Item = slotFromItem;
             slotFrom.Clear();
-        }
-        else if (slotFrom.Item.id != slotTo.Item.id)
-        {
-            Console.WriteLine("You trying to move item to another with another id than item you moving");
         }
     }
 }

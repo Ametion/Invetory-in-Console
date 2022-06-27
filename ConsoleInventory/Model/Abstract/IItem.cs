@@ -2,8 +2,8 @@
 
 public interface IItem
 {
-    public string id { get; }
-    public int amount { get; set; }
-    public int maxAmountInSlot { get; set; }
+    public string Id { get; }
+    public int Amount { get; set; }
+    public int MaxAmountInSlot { get; set; }
 
 }

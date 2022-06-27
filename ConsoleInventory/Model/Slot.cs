@@ -10,7 +10,7 @@ public class Slot : ISlot
     {
         get
         {
-            if (Item != null) return Item.amount;
+            if (Item != null) return Item.Amount;
             
             return 0;
         }
@@ -20,7 +20,7 @@ public class Slot : ISlot
     {
         get
         {
-            if (Item != null) return Item.maxAmountInSlot;
+            if (Item != null) return Item.MaxAmountInSlot;
             
             return 1;
         }
